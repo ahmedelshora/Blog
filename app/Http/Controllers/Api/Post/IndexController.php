@@ -16,8 +16,9 @@ class IndexController extends Controller
     {
         $pagination = $request->get('pagination', 10);
 
-        $posts = Post::with(['category', 'user'])
-            ->withCommentsCount()
+        $posts = Post::withCommentsCount()
+            ->withCategory()
+            ->withUser()
             ->filter($request->only('search'))
             ->paginate($pagination);
         return response()->json([

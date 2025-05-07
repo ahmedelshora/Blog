@@ -13,6 +13,7 @@ class Post extends Model
         'title',
         'content',
         'category_id',
+        'user_id',
     ];
 
     /**
